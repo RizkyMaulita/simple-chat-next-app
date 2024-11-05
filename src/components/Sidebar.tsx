@@ -10,7 +10,10 @@ import {
 
 export default function Sidebar() {
   return (
-    <div className="w-[10vw] h-screen bg-white border-r-2   rounded-s-[30px] fixed ">
+    <div
+      id="sidebar"
+      className="w-[10vw] h-screen bg-white border-r-2 rounded-s-[30px] "
+    >
       <div className="flex flex-col items-center py-[25px] gap-[30px] ">
         {/* Profile Image 100%*/}
         <div className="avatar mb-[25px] cursor-pointer">
