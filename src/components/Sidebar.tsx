@@ -7,8 +7,13 @@ import {
   faGear,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import { onLogout } from "@/app/login/action";
 
 export default function Sidebar() {
+  const doLogout = async () => {
+    await onLogout();
+  };
+
   return (
     <div
       id="sidebar"
@@ -44,7 +49,10 @@ export default function Sidebar() {
           <p className="text-sm">Settings</p>
         </div>
 
-        <div className="avatar flex flex-col items-center gap-[8px] cursor-pointer hover:text-blue-tersier">
+        <div
+          className="avatar flex flex-col items-center gap-[8px] cursor-pointer hover:text-blue-tersier"
+          onClick={doLogout}
+        >
           <FontAwesomeIcon icon={faRightFromBracket} size={"xl"} />
           <p className="text-sm">Logout</p>
         </div>

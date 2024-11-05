@@ -56,9 +56,9 @@ export default async function Home() {
       {/* Main Chat Container */}
       <section
         id="main-chat-container"
-        className="container-chat flex flex-col h-full bg-white"
+        className="container-chat flex flex-col h-full bg-white rounded-r-[30px]"
       >
-        <div className="bg-white p-4 h-[8rem]">
+        <div className="bg-white p-4 h-[8rem] rounded-tr-[30px]">
           <div className="h-[60px] px-[25px] flex justify-between items-center">
             <div>
               <p className="text-2xl">TechPlus Company</p>
