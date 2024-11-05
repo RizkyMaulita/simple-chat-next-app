@@ -2,6 +2,12 @@ import { Prisma } from "@prisma/client";
 import prisma from "..";
 import { hashText } from "../utils/hash";
 
+export const getAllUser = async (filterQuery: Prisma.UserWhereInput) => {
+  return await prisma.user.findMany({
+    where: filterQuery,
+  });
+};
+
 export const createUser = async (payload: Prisma.UserCreateInput) => {
   const isExistUser = await prisma.user.findFirst({
     where: {
