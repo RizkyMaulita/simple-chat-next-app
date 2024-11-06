@@ -19,7 +19,7 @@ export const onRegister = async (formData: FormData) => {
     throw new Error(`Password doesn't match`);
   }
 
-  const request = await fetch(`${BASE_URL}/api/register`, {
+  const request = await fetch(`${BASE_URL}/api/auth/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

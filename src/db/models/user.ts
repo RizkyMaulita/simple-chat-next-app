@@ -35,6 +35,14 @@ export const createUser = async (payload: Prisma.UserCreateInput) => {
   return user;
 };
 
+export const getUserById = async (id: string) => {
+  const user = await prisma.user.findFirst({
+    where: { id },
+  });
+
+  return user;
+};
+
 export const getUserByAuth = async (auth: string) => {
   const user = await prisma.user.findFirst({
     where: {

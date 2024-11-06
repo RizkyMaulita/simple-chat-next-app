@@ -11,7 +11,7 @@ export const onLogin = async (formData: FormData) => {
     password: formData.get("password"),
   };
 
-  const request = await fetch(`${BASE_URL}/api/login`, {
+  const request = await fetch(`${BASE_URL}/api/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

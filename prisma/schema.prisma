@@ -20,6 +20,8 @@ model User {
   password            String
   groupChannelOwners  GroupChannel[]
   groupChannelMembers GroupChannelMember[]
+  groupChatSenders    GroupChat[]
+  groupChatMembers    GroupChatMember[]
 }
 
 model GroupChannel {
@@ -39,4 +41,23 @@ model GroupChannelMember {
   userId         String       @db.ObjectId
   user           User         @relation(fields: [userId], references: [id])
   joinDate       DateTime
+}
+
+model GroupChat {
+  id            String            @id @default(auto()) @map("_id") @db.ObjectId
+  summaryChatId String?
+  historyChatId String?
+  lastMessage   String
+  lastSenderId  String            @db.ObjectId
+  lastSender    User              @relation(fields: [lastSenderId], references: [id])
+  updatedAt     DateTime
+  members       GroupChatMember[]
+}
+
+model GroupChatMember {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String    @db.ObjectId
+  user        User      @relation(fields: [userId], references: [id])
+  groupChatId String    @db.ObjectId
+  groupChat   GroupChat @relation(fields: [groupChatId], references: [id])
 }

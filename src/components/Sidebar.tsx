@@ -8,8 +8,11 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { onLogout } from "@/app/login/action";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Sidebar() {
+  const pathname = usePathname();
+  console.log(pathname, "<<< pathname");
   const doLogout = async () => {
     await onLogout();
   };
@@ -27,7 +30,11 @@ export default function Sidebar() {
           </div>
         </div>
 
-        <div className="avatar flex flex-col items-center gap-[8px] cursor-pointer hover:text-blue-tersier">
+        <div
+          className={`avatar flex flex-col items-center gap-[8px] cursor-pointer hover:text-blue-tersier ${
+            pathname === "/" ? "text-blue-tersier" : ""
+          }`}
+        >
           <FontAwesomeIcon icon={faComments} size={"xl"} />
           <p className="text-sm">All Chats</p>
         </div>
